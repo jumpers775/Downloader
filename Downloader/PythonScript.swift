@@ -12,9 +12,8 @@ func RunPythonScript(arg: String){
     //print(FileManager.default.currentDirectoryPath)
     //let os = Python.import("os")
     let paths = Bundle.main.paths(forResourcesOfType: "py", inDirectory: nil)
-    print(paths[1])
     var str = paths[1]
-    var x = 12
+    var x = 13
     while x > 0 {
         str = String(str.dropLast())
         x -= 1
@@ -23,6 +22,5 @@ func RunPythonScript(arg: String){
     sys.path.append("\(str)")
     let file = Python.import("Downloader")
     file.download(arg)
-    
     return
 }
